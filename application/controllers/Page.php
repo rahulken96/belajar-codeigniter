@@ -58,7 +58,7 @@ class Page extends CI_Controller
 		
 		$this->output->set_content_type('json')->set_output($data);
 	}
-
+	
 	public function _private() //Bukan untuk Route dalam url web, cuma function biasa
 	{
 		echo 'hallo';

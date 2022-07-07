@@ -58,3 +58,4 @@ $route['_private'] = '_private'; //Bukan Route untuk url web, cuma function bias
 
 /* Studi Kasus */
 $route['article/(:any)'] = 'article/show/$1';
+$route['admin'] = 'admin/dashboard';
