@@ -9,8 +9,30 @@
   <main class="main">
     <?php $this->load->view('admin/_partials/side_nav.php') ?>
 
+		<?php if ($this->session->flashdata('masuk_admin')) : ?>
+			<script>
+				Swal.fire({
+					title: 'Selamat Datang !',
+					text: '<?= $this->session->flashdata('masuk_admin') ?>',
+					icon: 'info',
+				}).then(dialog => {
+					Swal.mixin({
+						toast: true,
+						position: 'top-end',
+						showConfirmButton: false,
+						timer: 3000,
+						timerProgressBar: true,
+						didOpen: (toast) => {
+							toast.addEventListener('mouseenter', Swal.stopTimer)
+							toast.addEventListener('mouseleave', Swal.resumeTimer)
+						}
+					})
+				});
+			</script>
+		<?php endif ?>
+
     <div class="content">
-      <h1>Overview</h1>
+      <h1>Beranda</h1>
 
       <div style="display:flex; gap: 1em">
         <div class="card text-center" style="width: 100px;">
