@@ -4,6 +4,27 @@ class Article_model extends CI_Model
 {
 	private $_table = 'artikel';
 
+	public function rules()
+	{
+		return [
+			[
+				'field' => 'title',
+				'label' => 'Title',
+				'rules' => 'required|max_length[128]'
+			],
+			[
+				'field' => 'draft',
+				'label' => 'Draft',
+				'rules' => 'required|in_list[true,false]'
+			],
+			[
+				'field' => 'content',
+				'label' => 'Content',
+				'rules' => '' // <-- rules dikosongkan
+			]
+		];
+	}
+
 	public function get_published($limit = null, $offset = null)
 	{
 		if (!$limit && $offset) {
